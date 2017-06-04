@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AndrewSouthardHelloWorld</string>
+    <string name="hello">Hello Andrew Southard</string>
+    <string name="and">And</string>
+    <string name="welcome">Welcome in CS 639 Summer 2017</string>
+</resources>
