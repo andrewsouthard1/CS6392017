@@ -8,25 +8,36 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button ourButton;
+    private TextView ourMessage;
+    private int numTimesClicked = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ourButton = (Button) findViewById(R.id.button);
+        ourMessage = (TextView) findViewById(R.id.textView);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener ourOnClickListener = new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                numTimesClicked = numTimesClicked + 1;
+                if(numTimesClicked == 1) {
+                    ourMessage.setText("The button got tapped " + numTimesClicked + " time.");
+                } else {
+                    ourMessage.setText("The button got tapped " + numTimesClicked + " times.");
+                }
             }
-        });
+        };
+
+        ourButton.setOnClickListener(ourOnClickListener);
     }
 
     @Override
