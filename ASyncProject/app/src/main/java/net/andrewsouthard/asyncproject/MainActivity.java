@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                URL url = new URL("pics2.city-data.com/city/maps/fr625.png");
+                URL url = new URL("https://github.com/andrewsouthard1/CS6392017/blob/master/fr625.png");
                 HttpURLConnection con = (HttpURLConnection)url.openConnection();
                 if(con.getResponseCode() != 200){
                     throw new Exception("Failed to connect");
