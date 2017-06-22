@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light"
+    android:orientation="vertical"
+    tools:context="net.andrewsouthard.andrewsouthardmidterm.MainActivityFragment"
+    tools:showIn="@layout/activity_main">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/enter_us_dollars"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/editDollars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/converter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Convert to Comorian Francs"
+        android:layout_margin="25dp"
+        android:textColor="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Comorian Francs:"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/francs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="0.0"
+        android:textSize="30sp" />
+
+</LinearLayout>
