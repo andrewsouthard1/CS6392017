@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="net.andrewsouthard.imageviewer.MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/dog_pic"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView5"
+        app:srcCompat="@mipmap/dog2"
+        tools:layout_editor_absoluteY="194dp"
+        tools:layout_editor_absoluteX="88dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView6"
+        app:srcCompat="@mipmap/dog3"
+        tools:layout_editor_absoluteY="74dp"
+        tools:layout_editor_absoluteX="138dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView7"
+        app:srcCompat="@mipmap/dog4"
+        tools:layout_editor_absoluteY="177dp"
+        tools:layout_editor_absoluteX="186dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView9"
+        app:srcCompat="@mipmap/dog5"
+        tools:layout_editor_absoluteX="186dp"
+        tools:layout_editor_absoluteY="284dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView7"
+        android:layout_centerHorizontal="true"
+        android:text="@string/dogs" />
+
+</RelativeLayout>
