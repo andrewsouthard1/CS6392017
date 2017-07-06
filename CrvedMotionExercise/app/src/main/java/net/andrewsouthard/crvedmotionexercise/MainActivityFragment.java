@@ -10,13 +10,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class MainActivityFragment extends Fragment {
 
     View fragmentView;
-    int i = 1;
+    Boolean finalPosition = false;
 
     public MainActivityFragment() {
     }
@@ -26,33 +23,30 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         fragmentView = inflater.inflate(R.layout.fragment_main, container, false);
         final ImageView imgView = (ImageView) fragmentView.findViewById(R.id.imageView2);
-
-        // Need a button as the view is not inflated yet (no return)
         Button btnRevealHide = (Button)fragmentView.findViewById(R.id.button);
-
         btnRevealHide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float final_x = fragmentView.getWidth()-imgView.getBottom();
-                float final_y = fragmentView.getHeight()-imgView.getBottom();
+                float x = fragmentView.getWidth()-imgView.getBottom();
+                float y = fragmentView.getHeight()-imgView.getBottom();
                 Path path = new Path();
 
-                if(i%2 != 0){
+                if(!finalPosition){
                     path.moveTo(0, 0);
-                    path.quadTo(final_x/3, final_y, final_x, final_y);
+                    path.quadTo(x/10, y, x, y);
+                    finalPosition = true;
                 }else {
-                    path.moveTo(final_x, final_y);
-                    path.quadTo(final_x, final_y/3, 0, 0);
+                    path.moveTo(x, y);
+                    path.quadTo(x, y/10, 0, 0);
+                    finalPosition = false;
                 }
-                i++;
 
                 ObjectAnimator mAnimator;
                 mAnimator = ObjectAnimator.ofFloat(imgView, View.X, View.Y, path);
-                mAnimator.setDuration(5000);
+                mAnimator.setDuration(3000);
                 mAnimator.start();
             }
         });
-
         return fragmentView;
     }
 }
