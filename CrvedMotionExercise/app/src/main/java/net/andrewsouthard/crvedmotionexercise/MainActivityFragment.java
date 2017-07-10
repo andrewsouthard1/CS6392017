@@ -27,24 +27,24 @@ public class MainActivityFragment extends Fragment {
         btnRevealHide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float x = fragmentView.getWidth()-imgView.getBottom();
-                float y = fragmentView.getHeight()-imgView.getBottom();
+                int cx = fragmentView.getWidth()/2;
+                int cy = fragmentView.getHeight()/2;
                 Path path = new Path();
 
                 if(!finalPosition){
                     path.moveTo(0, 0);
-                    path.quadTo(x/10, y, x, y);
+                    path.quadTo(cx/10, cy, cx, cy);
                     finalPosition = true;
                 }else {
-                    path.moveTo(x, y);
-                    path.quadTo(x, y/10, 0, 0);
+                    path.moveTo(cx, cy);
+                    path.quadTo(cx, cy/10, 0, 0);
                     finalPosition = false;
                 }
 
-                ObjectAnimator mAnimator;
-                mAnimator = ObjectAnimator.ofFloat(imgView, View.X, View.Y, path);
-                mAnimator.setDuration(3000);
-                mAnimator.start();
+                ObjectAnimator anim;
+                anim = ObjectAnimator.ofFloat(imgView, View.X, View.Y, path);
+                anim.setDuration(3000);
+                anim.start();
             }
         });
         return fragmentView;
