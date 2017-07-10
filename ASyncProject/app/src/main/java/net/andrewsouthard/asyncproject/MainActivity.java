@@ -21,7 +21,6 @@ import java.net.URL;
 public class MainActivity extends AppCompatActivity {
 
     ImageView img;
-    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,29 +33,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public class asyncImage extends AsyncTask<Void, Void, Void>{
+    public class asyncImage extends AsyncTask<String, Void, Bitmap>{
 
         @Override
-        protected Void doInBackground(Void... voids) {
+        protected Bitmap doInBackground(String... params) {
+            Bitmap bitmap = null;
             try {
-                URL url = new URL("https://github.com/andrewsouthard1/CS6392017/blob/master/fr625.png");
+                URL url = new URL("https://cdn-images-1.medium.com/fit/c/200/200/1*H_rnYFgXZcBkdpGyMTMkow.jpeg");
                 HttpURLConnection con = (HttpURLConnection)url.openConnection();
                 if(con.getResponseCode() != 200){
                     throw new Exception("Failed to connect");
                 }
                 InputStream is = con.getInputStream();
+                bitmap = BitmapFactory.decodeStream(is);
                 is.close();
-                Bitmap bitmap = BitmapFactory.decodeStream(is);
             } catch (Exception e){
                 Log.e("Image", "Failed to Load Image", e);
                 Log.e("Error", e.getMessage());
             }
 
-            return null;
+            return bitmap;
         }
 
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
+        protected void onPostExecute(Bitmap bitmap) {
             img.setImageBitmap(bitmap);
         }
     }
